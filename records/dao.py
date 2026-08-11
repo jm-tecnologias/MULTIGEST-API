@@ -20,5 +20,4 @@ class EntityRecordDAO(BaseDAO[EntityRecordSchema]):
         ).order_by(
             EntityRecordSchema.id.asc()
         )
-
         return list(self.database.scalars(stmt).all())
