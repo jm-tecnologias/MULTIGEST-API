@@ -18,10 +18,16 @@ class EntityService:
         company = self.company_dao.find_by_id(entity.company_id)
         if not company:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Company not found")
+
+        existing_entity = self.entity_dao.check_entity_in_company(entity.name, company.id)
+        if existing_entity:
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Entity already exist at company")
+
         new_entity= EntitySchema(
             name=entity.name,
             company_id=entity.company_id,
             description=entity.description,
+            deleted_status=entity.deleted_status
         )
         return self.entity_dao.create(new_entity)
 
@@ -35,21 +41,22 @@ class EntityService:
 
 from utils.database import SessionLocal
 database = SessionLocal()
-# try:
-#     service = EntityService(database)
-#     entity_data = EntityCreate(
-#         name="Funcionario",
-#         description="Func. da empresa JM",
-#         company_id=1
-#     )
-#     entity = service.create(entity_data)
-#     print("Entity Created:")
-#     print("ID: ", entity.id)
-#     print("Name: ", entity.name)
-#     print("Description: ", entity.description)
-#     print("Company ID: ", entity.company_id)
-# finally:
-#     database.close()
+try:
+    service = EntityService(database)
+    entity_data = EntityCreate(
+        name="Funcionario",
+        description="Func. da empresa JM",
+        company_id=2,
+        deleted_status=False
+    )
+    entity = service.create(entity_data)
+    print("Entity Created:")
+    print("ID: ", entity.id)
+    print("Name: ", entity.name)
+    print("Description: ", entity.description)
+    print("Company ID: ", entity.company_id)
+finally:
+    database.close()
 
 # try:
 #     service = EntityService(database)
