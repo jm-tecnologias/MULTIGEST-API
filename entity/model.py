@@ -6,12 +6,11 @@ from fields.model import EntityFieldResponse
 from records.model import EntityRecordResponse
 
 
-
-# ================================================================================
 class EntityCreate(BaseModel):
     name: str
-    description: str | None= None
+    description: str | None = None
     company_id: int = Field(gt=0)
+    deleted_status: bool = False
 
 class EntityResponse(EntityCreate):
     id:int
