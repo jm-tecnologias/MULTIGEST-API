@@ -31,11 +31,13 @@ SessionLocal = sessionmaker(
 )
 
 # Schemas do Banco de dados
-# from utils.schema import CompanySchema
-# from utils.schema import EntityAnswerSchema
-# from utils.schema import EntitySchema
-# from utils.schema import EntityFieldSchema
-# from utils.schema import EntityRecordSchema
+from utils.schema import CompanySchema
+from utils.schema import CompanySchema
+from utils.schema import ContactShema
+from utils.schema import EntityAnswerSchema
+from utils.schema import EntitySchema
+from utils.schema import EntityFieldSchema
+from utils.schema import EntityRecordSchema
 
 
 def get_database() -> Generator[Session, None, None]:
@@ -51,6 +53,8 @@ def create_database_tables() -> None:
     Importa os modelos e cria as tabelas registadas.
     """
     from utils.schema import CompanySchema
+    from utils.schema import CompanySchema
+    from utils.schema import ContactShema
     from utils.schema import EntityAnswerSchema
     from utils.schema import EntitySchema
     from utils.schema import EntityFieldSchema

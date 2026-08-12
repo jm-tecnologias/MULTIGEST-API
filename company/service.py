@@ -15,7 +15,10 @@ class CompanyService:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Company already exists")
         new_company = CompanySchema(
             name=company.name,
-            description=company.description
+            reson=company.reson,
+            nuit=company.nuit,
+            description=company.description,
+            deleted_status=company.deleted_status,
         )
         return self.dao.create(new_company)
 

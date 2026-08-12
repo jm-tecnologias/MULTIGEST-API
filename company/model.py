@@ -7,7 +7,10 @@ from entity.model import EntityResponse
 
 class CompanyCreate(BaseModel):
     name: str
-    description: str | None= None
+    reson: str | None = None
+    nuit: int | None = None
+    description: str | None = None
+    deleted_status: bool | False
 
 class CompanyResponse(CompanyCreate):
     id: int
