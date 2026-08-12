@@ -10,7 +10,7 @@ class CompanyCreate(BaseModel):
     reson: str | None = None
     nuit: int | None = None
     description: str | None = None
-    deleted_status: bool | False
+    deleted_status: bool = False
 
 class CompanyResponse(CompanyCreate):
     id: int

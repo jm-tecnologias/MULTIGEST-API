@@ -32,8 +32,11 @@ class CompanyService:
 # try:
 #     service = CompanyService(database)
 #     company_data = CompanyCreate(
-#         name="JM Tech",
-#         description="Empresa de soluções tecnológicas"
+#         name="TJunior&Mula Tecnologias",
+#         reson="JM-Tecnologias SU, LDA",
+#         nuit=123456789,
+#         description="Empresa de soluções tecnológicas",
+#         deleted_status=True
 #     )
 #     company = service.create(company_data)
 #     print("Empresa criada:")
