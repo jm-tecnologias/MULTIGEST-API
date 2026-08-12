@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from utils.database import create_database_tables
+from company.routes import company_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -14,3 +15,4 @@ def root():
     return {"Hello": "World"}
 
 
+app.include_router(company_router)

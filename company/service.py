@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from dao import CompanyDAO
-from model import CompanyCreate, CompanyResponse
+from company.dao import CompanyDAO
+from company.model import CompanyCreate, CompanyResponse, CompanyDetailsResponse
 from utils.schema import CompanySchema
 
 
@@ -32,17 +32,17 @@ class CompanyService:
 # try:
 #     service = CompanyService(database)
 #     company_data = CompanyCreate(
-#         name="TJunior&Mula Tecnologias",
+#         name="MJunior&Mula Tecnologias",
 #         reson="JM-Tecnologias SU, LDA",
 #         nuit=123456789,
 #         description="Empresa de soluções tecnológicas",
 #         deleted_status=True
 #     )
 #     company = service.create(company_data)
-#     print("Empresa criada:")
-#     print("ID:", company.id)
-#     print("Nome:", company.name)
-#     print("Descrição:", company.description)
+#     print("Empresa criada:",company)
+#     # print("ID:", company.id)
+#     # print("Nome:", company.name)
+#     # print("Descrição:", company.description)
 # finally:
 #     database.close()
 
