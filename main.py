@@ -1,5 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
+
+from entity.routes import entity_router
 from utils.database import create_database_tables
 from company.routes import company_router
 
@@ -16,3 +18,4 @@ def root():
 
 
 app.include_router(company_router)
+app.include_router(entity_router)

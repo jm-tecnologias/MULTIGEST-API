@@ -2,9 +2,9 @@ import json
 
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from dao import EntityDAO
+from entity.dao import EntityDAO
 from company.dao import  CompanyDAO
-from model import EntityCreate, EntityResponse
+from entity.model import EntityCreate, EntityResponse
 from utils.schema import EntitySchema
 
 
@@ -37,26 +37,24 @@ class EntityService:
 
 
 
-
-
-from utils.database import SessionLocal
-database = SessionLocal()
-try:
-    service = EntityService(database)
-    entity_data = EntityCreate(
-        name="Funcionario",
-        description="Func. da empresa JM",
-        company_id=2,
-        deleted_status=False
-    )
-    entity = service.create(entity_data)
-    print("Entity Created:")
-    print("ID: ", entity.id)
-    print("Name: ", entity.name)
-    print("Description: ", entity.description)
-    print("Company ID: ", entity.company_id)
-finally:
-    database.close()
+# from utils.database import SessionLocal
+# database = SessionLocal()
+# try:
+#     service = EntityService(database)
+#     entity_data = EntityCreate(
+#         name="Funcionario",
+#         description="Func. da empresa JM",
+#         company_id=2,
+#         deleted_status=False
+#     )
+#     entity = service.create(entity_data)
+#     print("Entity Created:")
+#     print("ID: ", entity.id)
+#     print("Name: ", entity.name)
+#     print("Description: ", entity.description)
+#     print("Company ID: ", entity.company_id)
+# finally:
+#     database.close()
 
 # try:
 #     service = EntityService(database)
