@@ -140,38 +140,38 @@ class EntityAnswerService:
 
 
 
-from utils.database import SessionLocal
-database = SessionLocal()
-
-try:
-    service = EntityAnswerService(database)
-    data = EntityRecordInput(
-        entity_id=1,
-        company_id=1,
-        answers=[
-            {
-                "label": "Nome",
-                "value": "Ven"
-            },
-            {
-                "value": "Mhu",
-                "label": "Apelido"
-            },
-            {
-                "value": 53,
-                "label": "Idade"
-            },
-            {
-                "label": "Observacao",
-                "value": "sdsa dfsfs sdfsd s"
-            }
-        ]
-    )
-    result = service.create(data)
-
-    print("RESULTADO:")
-    print(result)
-
-finally:
-    database.close()
+# from utils.database import SessionLocal
+# database = SessionLocal()
+#
+# try:
+#     service = EntityAnswerService(database)
+#     data = EntityRecordInput(
+#         entity_id=1,
+#         company_id=1,
+#         answers=[
+#             {
+#                 "label": "Nome",
+#                 "value": "Ven"
+#             },
+#             {
+#                 "value": "Mhu",
+#                 "label": "Apelido"
+#             },
+#             {
+#                 "value": 53,
+#                 "label": "Idade"
+#             },
+#             {
+#                 "label": "Observacao",
+#                 "value": "sdsa dfsfs sdfsd s"
+#             }
+#         ]
+#     )
+#     result = service.create(data)
+#
+#     print("RESULTADO:")
+#     print(result)
+#
+# finally:
+#     database.close()
 

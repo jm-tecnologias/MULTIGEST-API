@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from entity.routes import entity_router
 from utils.database import create_database_tables
 from company.routes import company_router
+from fields.routes import field_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -19,3 +20,4 @@ def root():
 
 app.include_router(company_router)
 app.include_router(entity_router)
+app.include_router(field_router)

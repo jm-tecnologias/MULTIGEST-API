@@ -1,5 +1,3 @@
-import json
-
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from entity.dao import EntityDAO

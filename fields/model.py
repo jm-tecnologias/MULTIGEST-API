@@ -8,12 +8,10 @@ from pydantic import BaseModel, ConfigDict, Field
 class EntityFieldCreate(BaseModel):
     label: str
     field_type: str
-
     required: bool = False
-
     config: dict[str, Any] | None = None
-
     entity_id: int = Field(gt=0)
+    deleted_status: bool = False
 
 
 class EntityFieldResponse(EntityFieldCreate):
