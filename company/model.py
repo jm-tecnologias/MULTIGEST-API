@@ -12,6 +12,13 @@ class CompanyCreate(BaseModel):
     description: str | None = None
     deleted_status: bool = False
 
+class CompanyUpdate(BaseModel):
+    name: str | None = None
+    reson: str | None = None
+    nuit: int | None = None
+    description: str | None = None
+    deleted_status: bool = False
+
 class CompanyResponse(CompanyCreate):
     id: int
     created_at: datetime

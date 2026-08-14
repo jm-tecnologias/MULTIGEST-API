@@ -1,3 +1,4 @@
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 from utils.schema import CompanySchema
 from utils.baseDao import BaseDAO
@@ -9,3 +10,7 @@ class CompanyDAO(BaseDAO[CompanySchema]):
             database=database,
             model=CompanySchema
         )
+
+    def find_all_companies(self, skip:int = 0, limit: int = 100) -> list[CompanySchema]:
+        stmt = select(CompanySchema).offset(skip).limit(limit).order_by(CompanySchema.name)
+        return list(self.database.scalars(stmt).all())
